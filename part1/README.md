@@ -180,6 +180,7 @@ macroscript removeFromMap(string id) {
 } broadcast { deletion } on channel __selfName
 ```
 
+Et voilà notre moteur de recherche prêt à indexer des lieux !
 
 // TODO - from here
 
