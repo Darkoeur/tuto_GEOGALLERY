@@ -49,7 +49,47 @@ service users = userdir(__default).forbiddenVerbs(__all);
 
 ZetaPush propose un service nommé SearchEngine qui implémente le moteur de recherche ElasticSearch. Nous nous baserons sur celui-ci pour indexer nos lieux.
 
-On créé un fichier *src/utils.zms* contenant la macro **getLogin()** :
+C'est dans *init.zms* que nous configurons notre index. Cette configuration sera effective après déploiement (!).
+
+```javascript
+// fichier init.zms
+
+// variables declared in zms.properties, chosen values :
+// login: john, password: travolta
+auth.memauth_createUser({
+	login:@zms.test.login,
+	password:@zms.test.password,
+	email:@com.zetapush.tutorials.zetamap.test.user.email
+});
+
+es.search_createIndex({
+	index: MAP_INDEX,
+	mappings: {
+		location: {
+			properties: {
+				coords: {
+					type: "geo_point"
+				},
+				name: {
+					type: "string"
+				},
+				tags: {
+					type: "string"
+				},
+				desc: {
+					type: "string"
+				},
+				creator: {
+					type: "string"
+				}
+			}
+
+		}
+	}
+});
+```
+
+On créé ensuite un fichier *src/utils.zms* contenant la macro **getLogin()** :
 
 ```javascript
 /**
@@ -140,47 +180,6 @@ macroscript removeFromMap(string id) {
 } broadcast { deletion } on channel __selfName
 ```
 
-Enfin, modifiez *init.zms* pour qu'au déploiement notre index soit configuré.
-
-```javascript
-// fichier init.zms
-
-// variables declared in zms.properties, chosen values :
-// login: john, password: travolta
-auth.memauth_createUser({
-	login:@zms.test.login,
-	password:@zms.test.password,
-	email:@com.zetapush.tutorials.zetamap.test.user.email
-});
-
-es.search_createIndex({
-	index: MAP_INDEX,
-	mappings: {
-		location: {
-			properties: {
-				coords: {
-					type: "geo_point"
-				},
-				name: {
-					type: "string"
-				},
-				tags: {
-					type: "string"
-				},
-				desc: {
-					type: "string"
-				},
-				creator: {
-					type: "string"
-				}
-			}
-
-		}
-	}
-});
-```
-
-La syntaxe est propre à ElasticSearch et d'autres types sont disponibles, susceptibles de correspondre à votre utilisation.
 
 // TODO - from here
 
