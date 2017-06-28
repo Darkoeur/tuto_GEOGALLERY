@@ -144,7 +144,9 @@ Enfin, modifiez *init.zms* pour qu'au déploiement notre index soit configuré.
 
 ```javascript
 // fichier init.zms
-// create a test user, to be able to run/debug macros from the eclipse UI
+
+// variables declared in zms.properties, chosen values :
+// login: john, password: travolta
 auth.memauth_createUser({
 	login:@zms.test.login,
 	password:@zms.test.password,
