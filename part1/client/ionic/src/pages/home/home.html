@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar color="danger">
+        <ion-title>
+            GMap Sample
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div #map id="map" style="height:100%;">
+        <button class="trash-button" outline large color="dark" [disabled]="!canDelete()" (click)="delete()" ion-button icon-only>
+            <ion-icon name="trash"></ion-icon>
+        </button>
+
+        <button class="debug-button" large color="primary" (click)="debug()" ion-button icon-only>
+            <ion-icon name="construct"></ion-icon>
+        </button>
+    </div>
+</ion-content>

@@ -1,0 +1,18 @@
+/** obtain ALL the locations stored in the elastic search engine */
+macroscript getMap() {
+	var searchResult = es.search({
+		indices: [MAP_INDEX],
+		query: {
+			"match_all": {}
+		}
+	});
+	
+	var locations = [];
+	
+	for result in searchResult.items.content {
+		var location = result.data;
+		location.id = result.id;
+		locations = list:add(locations, location);
+	}
+	
+} return { locations } on channel __selfName

@@ -1,0 +1,32 @@
+// create a test user, to be able to run/debug macros from the eclipse UI
+auth.memauth_createUser({
+	login:@zms.test.login,
+	password:@zms.test.password,
+	email:@com.zetapush.tutorials.zetamap.test.user.email
+});
+
+es.search_createIndex({
+	index: MAP_INDEX,
+	mappings: {
+		location: {
+			properties: {
+				coords: {
+					type: "geo_point"
+				},
+				name: {
+					type: "string"
+				},
+				tags: {
+					type: "string"
+				},
+				desc: {
+					type: "string"
+				},
+				creator: {
+					type: "string"
+				}
+			}
+			
+		}
+	}
+});

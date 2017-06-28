@@ -1,0 +1,23 @@
+/**
+* Recipe com.zetapush.tutorials.zetamap
+* Created on Tue Jun 27 15:04:45 CEST 2017 by root
+* Documentation in a source comment for a simple description
+*/
+recipe com.zetapush.tutorials.zetamap 1.0.0;
+
+/** Welcome message read from configuration */
+const WELCOME_MESSAGE = @com.zetapush.tutorials.zetamap.welcomeMessage;
+const MAP_INDEX = 'map2';
+
+/** a simple authentication service */
+service auth = simple(__default);
+
+/** our code is run by this service */
+service code = macro(__default) for 'src';
+
+/** elastic search engine */
+service es = search(__default).forbiddenVerbs(__all);
+
+/** service giving access to the users informations */
+service users = userdir(__default).forbiddenVerbs(__all);
+

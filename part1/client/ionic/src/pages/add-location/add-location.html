@@ -1,0 +1,31 @@
+<ion-header>
+
+    <ion-navbar color="danger">
+        <ion-title>Add a new location</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+      <ion-item>
+        <ion-label floating>Name :</ion-label>
+        <ion-input [(ngModel)]="name" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Description :</ion-label>
+        <ion-input [(ngModel)]="desc" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Tags :</ion-label>
+        <ion-input [(ngModel)]="tags" type="text"></ion-input>
+      </ion-item>
+
+    <br/>
+
+    <button ion-button full large color="primary" (click)="add()" [disabled]="!formComplete()">Submit</button>
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Locations - debug tool</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let location of locations">
+        <ion-item>
+            <h1>{{location.name}}</h1>
+        </ion-item>
+        <ion-card-content>
+            <p>{{location.desc}}</p>
+            <p><i>{{location.tags}}</i></p>
+        </ion-card-content>
+        <ion-row>
+            <ion-col>
+                <button ion-button icon-left clear small>
+                    <ion-icon name="contact"></ion-icon>
+                    <div>{{location.creator}}</div>
+                </button>
+            </ion-col>
+            <ion-col>
+                <button color="danger" ion-button icon-left clear small>
+                    <ion-icon name="calendar"></ion-icon>
+                    <div>{{location.date | date:"dd/MM/yy HH:mm"}}</div>
+                </button>
+            </ion-col>
+            <ion-col class="center">
+                <ion-chip>
+                    <ion-icon name="finger-print" color="dark"></ion-icon>
+                    <ion-label>{{location.id}}</ion-label>
+                </ion-chip>
+            </ion-col>
+
+        </ion-row>
+    </ion-card>
+
+
+</ion-content>

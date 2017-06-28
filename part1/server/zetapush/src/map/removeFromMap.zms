@@ -1,0 +1,10 @@
+macroscript removeFromMap(string id) {
+	
+	es.delete({type : 'location', id : id, index : MAP_INDEX});
+	
+	var deletion = {
+		id: id,
+		success: true
+	};
+	
+} return { deletion } on channel __selfName

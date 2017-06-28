@@ -1,0 +1,30 @@
+/** add a location to the map */
+macroscript addToMap(object location) {
+	
+	var id = str:rnd36(8);
+	
+	var { result : { login: login }} = call getLogin();
+	
+	var date = time:now();
+	
+	var tags = str:upper(location.tags);
+	
+	var location_data = {
+		coords: location.coords,
+		name: location.name,
+		tags: tags,
+		desc: location.desc,
+		date: date,
+		creator: login
+	};
+	
+	es.index({
+		'type': 'location',
+		'id': id,
+		'index': MAP_INDEX,
+		'data': location_data
+	});
+	
+	location_data.id = id;
+	
+} return { location_data } on channel __selfName

@@ -1,0 +1,14 @@
+/**
+* var { result : { login: login }} = call getLogin();
+* will give the login of the current user
+*/
+macroscript getLogin () {
+
+	var keys = [__userKey];
+
+	// using the service User Directory
+	var { users } = users.userInfo({userKeys : keys});
+	trace(users);
+	var login = users[__userKey]['login'];
+
+} return { login }
