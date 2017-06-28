@@ -1,5 +1,7 @@
 # GEOGALLERY #
 
+![alt text][background]
+
 The tutorial will be separated into several parts, each one built-up on the previous one and adding some functionnalities to it.
 Each part of the tutorial matches a folder *partX/* including two sub-folders, *partX/client/* and *partX/server/*, plus a written tutorial in order to realize the project.
 
@@ -29,7 +31,7 @@ All you need to start is a free sandbox which will allow you to deploy your code
 ![alt text][screenshot_p1_1]
 ![alt text][screenshot_p1_2]
 
-
+[background]: https://wires.fr/imgs/geogallery-bckg.png "Splashart"
 [screenshot_p1_0]: https://wires.fr/imgs/geogallery-part1-map.png "Part 1 feature : visualize map"
 [screenshot_p1_1]: https://wires.fr/imgs/geogallery-part1-add.png "Part 1 feature : add location"
 [screenshot_p1_2]: https://wires.fr/imgs/geogallery-part1-debug.png "Part 1 feature : debug view"
