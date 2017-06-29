@@ -213,6 +213,8 @@ Pensez à vérifier votre version d'Angular (version 4 requise).
 
 N'oubliez pas de correctement importer les différents composants & services au niveau de *app.module.ts* au fur et à mesure pour vous éviter une liste d'erreurs.
 
+#### Services requis pour ZetaPush ####
+
 ```javascript
 // fichier src/providers/zeta-locations/locations-api.service.ts
 import { NgZone } from '@angular/core';
@@ -358,6 +360,8 @@ export class ZetaLocations {
 
 }
 ```
+
+#### Client générique ####
 
 ```javascript
 // fichier src/providers/messages/messages.service.ts
