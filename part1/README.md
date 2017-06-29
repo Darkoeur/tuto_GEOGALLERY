@@ -361,7 +361,7 @@ export class ZetaLocations {
 }
 ```
 
-#### Client générique ####
+#### Composants dédiés à l'affichage ####
 
 ```javascript
 // fichier src/providers/messages/messages.service.ts
